@@ -8,6 +8,7 @@ Source0: 	http://dfn.dl.sourceforge.net/sourceforge/lxde/%name-%version.tar.gz
 URL:		http://lxde.sourceforge.net/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:	gtk+2-devel vte-devel
+BuildRequires:	intltool
 
 %description
 Desktop-independent VTE-based terminal emulator without any unnecessary
