@@ -1,6 +1,6 @@
 Summary:	Lightweight VTE-based terminal emulator
 Name:     	lxterminal
-Version:	0.1.2
+Version:	0.1.3
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Graphical desktop/Other
@@ -45,7 +45,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(-, root, root)
-%{_sbindir}/%name
+%{_bindir}/%name
 %{_datadir}/%name
 %{_datadir}/applications/*.desktop
 %{_datadir}/pixmaps/*.png
+%{_mandir}/man1/*
