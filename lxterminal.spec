@@ -1,6 +1,6 @@
 Summary:	Lightweight VTE-based terminal emulator
 Name:     	lxterminal
-Version:	0.1.6
+Version:	0.1.7
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Graphical desktop/Other
@@ -31,13 +31,13 @@ Feature:
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
 
 %{find_lang} %{name}
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %post  
 
