@@ -1,6 +1,6 @@
 Summary:	Lightweight VTE-based terminal emulator
 Name:     	lxterminal
-Version:	0.1.7
+Version:	0.1.8
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Graphical desktop/Other
