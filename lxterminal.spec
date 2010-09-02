@@ -1,10 +1,11 @@
 Summary:	Lightweight VTE-based terminal emulator
 Name:     	lxterminal
-Version:	0.1.8
+Version:	0.1.9
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Graphical desktop/Other
-Source0: 	http://dfn.dl.sourceforge.net/sourceforge/lxde/%name-%version.tar.gz
+Source0:	http://dfn.dl.sourceforge.net/sourceforge/lxde/%name-%version.tar.gz
+Patch0:		lxterminal-0.1.9-fix-build-with-new-vte.patch
 URL:		http://lxde.sourceforge.net/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:	gtk+2-devel vte-devel
@@ -25,6 +26,7 @@ Feature:
 
 %prep
 %setup -q
+%patch0 -p1 -b .vte
 
 %build
 %configure2_5x
