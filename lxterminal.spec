@@ -17,10 +17,11 @@ License:	GPLv2+
 Group:		Graphical desktop/Other
 Patch0:		lxterminal-0.1.9-fix-build-with-new-vte.patch
 Patch1:		lxterminal-deprecate-revert.patch
+Patch2:		mdk-lxterminal-conf.patch
 URL:		http://lxde.sourceforge.net/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 %if %git
-BuildRequires:	docbook-to-man docbook-dtd412-xml
+BuildRequires:	docbook-to-man docbook-dtd412-xml docbook-style-xsl
 %endif
 BuildRequires:	gtk+2-devel vte-devel
 BuildRequires:	intltool
@@ -47,6 +48,7 @@ Feature:
 %patch0 -p1 -b .vte
 %endif
 #%patch1 -p1 -b .dragndrop
+%patch2 -p0 -b.conf
 
 %build
 %if %git
