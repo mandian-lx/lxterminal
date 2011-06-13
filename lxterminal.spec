@@ -1,14 +1,27 @@
+%define git 1
+%define prerel 31813de
+%define gitday 20110613
+%define ver 0.1.9
+
 Summary:	Lightweight VTE-based terminal emulator
 Name:     	lxterminal
-Version:	0.1.9
-Release:	%mkrel 2
+%if %git
+Version:	%{ver}.git%{gitday}
+Source0:	%{name}-%{prerel}.tar.gz
+%else
+Version:	%{ver}
+Source0:	http://dfn.dl.sourceforge.net/sourceforge/lxde/%name-%version.tar.gz
+%endif
+Release:	%mkrel 4
 License:	GPLv2+
 Group:		Graphical desktop/Other
-Source0:	http://dfn.dl.sourceforge.net/sourceforge/lxde/%name-%version.tar.gz
 Patch0:		lxterminal-0.1.9-fix-build-with-new-vte.patch
-Patch1:		lxterm-dnd.patch
+Patch1:		lxterminal-deprecate-revert.patch
 URL:		http://lxde.sourceforge.net/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+%if %git
+BuildRequires:	docbook-to-man docbook-dtd412-xml
+%endif
 BuildRequires:	gtk+2-devel vte-devel
 BuildRequires:	intltool
 
@@ -26,12 +39,22 @@ Feature:
   the same process.
 
 %prep
-%setup -q
+%if %git
+%setup -q -n %{name}-%{prerel}
+%patch1 -p0 -b.deprecate_revert
+%else
+%setup -q -n %{name}
 %patch0 -p1 -b .vte
-%patch1 -p1 -b .dragndrop
+%endif
+#%patch1 -p1 -b .dragndrop
 
 %build
+%if %git
+./autogen.sh
+%configure2_5x --enable-man
+%else
 %configure2_5x
+%endif
 %make
 
 %install
