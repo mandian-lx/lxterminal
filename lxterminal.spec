@@ -12,7 +12,7 @@ Source0:	%{name}-%{prerel}.tar.gz
 Version:	%{ver}
 Source0:	http://dfn.dl.sourceforge.net/sourceforge/lxde/%name-%version.tar.gz
 %endif
-Release:	%mkrel 2
+Release:	3
 License:	GPLv2+
 Group:		Graphical desktop/Other
 #Patch0:		lxterminal-0.1.9-fix-build-with-new-vte.patch
@@ -60,17 +60,10 @@ Feature:
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 %{find_lang} %{name}
 
-%clean
-rm -rf %{buildroot}
-
-%post  
-
-%postun
 
 %files -f %{name}.lang
 %defattr(-, root, root)
