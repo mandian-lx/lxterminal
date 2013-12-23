@@ -12,6 +12,7 @@ Patch2:		mdk-lxterminal-conf.patch
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(gtk+-x11-2.0)
 BuildRequires:	pkgconfig(vte)
+Requires:	termcap
 
 %description
 Desktop-independent VTE-based terminal emulator without any unnecessary
