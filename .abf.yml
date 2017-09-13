@@ -1,2 +1,4 @@
+removed_sources:
+  lxterminal-0.1.11.tar.gz: 3914c8e0552f7b8e1e32fde69244f90c16072df4
 sources:
-  "lxterminal-0.1.11.tar.gz": 3914c8e0552f7b8e1e32fde69244f90c16072df4
+  lxterminal-0.3.0.tar.xz: ce7684c3f5588b431b60dbdb0d948818e2781213
